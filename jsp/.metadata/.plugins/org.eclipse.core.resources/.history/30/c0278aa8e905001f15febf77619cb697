@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div>
+	<h1>도서검색</h1>
+	
+	<div class = "row mt-3 ​">
+		<div class="col-8 col-md-4 col-lg-4 ">
+			<form name="frm">
+				<div class="input-group">
+					<input class="form=control">
+					<button class="btn btn-success">검색</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<div class="row" id="div_book"></div>
+</div>
+
+<script id = "temp_book" type= "x-handlebars-template" >
+	{{#each documents}}
+		<div class="col-6 col-md-4 col-lg-2">
+			<div class="card">
+				<div class= "card-body">
+					<img src="{{thumbnail}}">
+				</div>
+				<div class="card-footer">
+					<div class="ellipsis">{{title}}</div>
+				</div>
+			</div>
+		</div>
+	{{/each}}
+</script>
+
+<script>
+	getData();
+	function getData() {
+		$.ajax({
+			type : "get",
+			data : { "query" : "JSP", page : 1, size : 6},
+			url : "https://dapi.kakao.com/v3/search/book?target=title",
+			headers : {"Authorization":"KakaoAK 6f34b847c930955a9c3b2742745e5a37"},
+			dataType : "json",
+			success : function(data) {
+				console.log(data);
+				const temp =Handlebars.compile($("#temp_book").html());
+				$("#div_book").html(temp(data));
+			}
+		})
+	}
+	
+</script>

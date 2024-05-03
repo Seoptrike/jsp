@@ -1,0 +1,15 @@
+2024-04-29 09:52:40,343 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-04-29 17:08:35,619 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-04-30 09:42:13,004 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-05-01 09:36:06,950 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-05-01 11:17:20,018 [main] INFO  org.eclipse.jetty.server.Server - jetty-12.0.6; built: 2024-01-30T02:43:24.387Z; git: 78ab6e6ba163f89cdd97f2ae0283fbb5e371cfaf; jvm 17.0.10+7
+2024-05-01 11:17:20,070 [main] INFO  o.e.j.server.handler.ContextHandler - Started oeje8n.ContextHandler$CoreContextHandler@73ff5c08{/wse,/wse,b=null,a=AVAILABLE,h=oeje8n.ContextHandler$CoreContextHandler$CoreToNestedHandler@28c454ea{STARTED}}
+2024-05-01 11:17:20,071 [main] INFO  o.e.j.s.DefaultSessionIdManager - Session workerName=node0
+2024-05-01 11:17:20,091 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@510ee9ec{HTTP/1.1, (http/1.1)}{0.0.0.0:57599}
+2024-05-01 11:17:20,103 [main] INFO  org.eclipse.jetty.server.Server - Started oejs.Server@1cdc84a7{STARTING}[12.0.6,sto=0] @6115117ms
+2024-05-01 11:17:20,553 [qtp197474840-1036] INFO  o.e.j.e.nested.ContextHandler._wse - Warning: No org.apache.tomcat.JarScanner set in ServletContext. Falling back to default JarScanner implementation.
+2024-05-01 19:13:44,194 [Framework stop - Equinox Container: 4094f432-f6a4-40e5-bf37-54bf904ed159] INFO  org.eclipse.jetty.server.Server - Stopped oejs.Server@1cdc84a7{STOPPING}[12.0.6,sto=0]
+2024-05-01 19:13:44,196 [Framework stop - Equinox Container: 4094f432-f6a4-40e5-bf37-54bf904ed159] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@510ee9ec{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+2024-05-02 09:38:44,446 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-05-02 10:17:33,947 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-05-03 09:35:48,422 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<style>
+	span{width : 100px;}
+</style>    
+<div class="row justify-content-center mt-3">
+	<div class="col-8 col md-6 col-lg-4">
+		<div class="card">
+			<div class="card-body">
+				<form name= "frm">
+					<div class="input-group mb-2">
+						<span class="input-group-text">아이디</span>
+						<input class = "form-controll">
+					</div>
+					<div class="input-group">
+						<span class="input-group-text">비밀번호</span>
+						<input class = "form-control">
+					</div>
+					<button class="btn-btn-success w-100">로그인</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div class="row justify-content-center mt-3">
+	<div class="col-8 col md-6 col-lg-4">
+		<div class="card">
+			<div class="card-body">
+				<form name= "frm">
+					<div class="input-group">
+						<span>아이디</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
