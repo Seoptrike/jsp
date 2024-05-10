@@ -19,8 +19,12 @@
 	</div>
 </div>
 <hr>
-
+<div id="comments_all">
 <jsp:include page= "comments.jsp"/>
+</div>
+<div id="comments_update">
+<jsp:include page= "comments_update.jsp"/>
+</div>
 
 <script>
 	const writer="${bbs.writer}";

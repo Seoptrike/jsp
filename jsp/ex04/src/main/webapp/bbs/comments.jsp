@@ -24,7 +24,7 @@
 	<div id= "div_comments"></div>
 </div>
 <div id="pagination" class="pagination justify-content-center mt-5"></div>
-<jsp:include page="modal_update.jsp"/>
+
 <script id="temp_comments" type="x-handlebars-template">
 
 	{{#each .}}
@@ -82,7 +82,7 @@
 			type:"get",
 			url:"/com/read",
 			success:function(){
-				$("#modalUpdate").modal("show");
+				alert("1111");
 			}
 		})
 		
