@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UsersMapper">
+
+	<select id="slist" resultType="hashmap">
+		select *, date_format(regdate,'%Y년-%m월-%d일') as fmtpdate
+		from users
+		<if test="key=='uid'">
+			where uid like concat('%', #{word}, '%')
+		</if>
+		<if test="key=='uname'">
+			where uname like concat('%', #{word}, '%')
+		</if>
+		<if test="key=='address1'">
+			where address1 like concat('%', #{word}, '%')
+		</if>
+		<if test="key=='phone'">
+			where phone like concat('%', #{word}, '%')
+		</if>
+		order by regDate desc
+		limit #{start}, #{size}
+	</select>
+
+	<select id="stotal" resultType="int">
+		select count(*) as total
+		from users
+		<if test="key=='uid'">
+ 			where uid like concat('%', #{word}, '%');
+ 		</if>
+ 		<if test="key=='uname'">
+ 			where uname like concat('%', #{word}, '%');
+ 		</if>
+ 		<if test="key=='phone'">
+ 			where phone like concat('%', #{word}, '%');
+ 		</if>
+ 		<if test="key=='address1'">
+ 			where address1 like concat('%', #{word}, '%');
+ 		</if> 
+	</select>
+
+	<select id="total" resultType="int">
+		select count(*) as total from users;
+		
+	</select>
+
+	<select id="plist" resultType="hashmap">
+		select *, date_format(regdate,'%Y년-%m월-%d일') as fmtpdate from users
+		order by regDate desc
+		limit #{start}, #{size}
+	</select>
+
+	<delete id="delete">
+		delete from users
+		where uid=#{uid}
+	</delete>
+
+	<select id="list" resultType="hashmap">
+		select *, date_format(regdate,'%Y년-%m월-%d일') as fmtpdate from users
+		order by regDate desc
+	</select>
+	
+	<select id="read" resultType="com.example.domain.UserVO">
+		select * from users where uid=#{uid}
+	</select>
+	
+	<insert id="insert"> 
+		insert into users (uid,upass,uname)
+		values(#{uid}, #{upass}, #{uname})
+	</insert>
+	
+	<update id="update">
+		update users
+		set uname=#{uname},address1=#{address1},address2=#{address2},phone=#{phone}
+		where uid=#{uid}
+	</update>
+	
+</mapper>

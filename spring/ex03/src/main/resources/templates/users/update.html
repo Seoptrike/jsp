@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body xmlns:th="http://www.thymeleaf.org">
+	<h1>사용자 정보 수정</h1>
+	<form name="frm">
+		<div>아이디: <input th:value="${user.uid}" name="uid" placeholder="아이디"><br></div>
+		<div>비밀번호: <input th:value="${user.upass}" name="upass" ><br></div>
+		<div>이름: <input th:value="${user.uname}" name="uname" ><br></div>
+		<div>전화번호: <input th:value="${user.phone}" name="phone" ><br></div>
+		<div>주소: <input th:value="${user.address1}" name="address1" size="50" > <input th:value="${user.address2}" name="address2" ><br></div>
+		<button>수정</button>
+		<button type="reset">취소</button>
+	</form>
+</body>
+<script>
+$(frm).on("submit", function(e){
+	e.preventDefault();
+	if(!confirm("사용자정보를 수정하실래요?")) return;
+	$.ajax({
+		type:"post",
+		url:"/users/update",
+		contentType:"application/json",
+		data:JSON.stringify({
+			uid:$(frm.uid).val(),
+			uname:$(frm.uname).val(),
+			phone:$(frm.phone).val(),
+			address1:$(frm.address1).val(),
+			address2:$(frm.address2).val()
+		}),
+		success:function(){
+			alert("수정완료!");
+			location.href="/users/read/" + $(frm.uid).val();
+		},
+		error:function(){
+			alert("수정실패!");
+		}
+	});
+})
+</script>
+</html>

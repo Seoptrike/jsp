@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자 목 록</title>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+</head>
+<body>
+	<h1>사용자 목록</h1>
+	<a href="/users/insert">사용자 등록</a>
+	<div id="div_list"></div>
+	<script id="temp_list" type="x-hanndlebars-template">
+		<table border=1>	
+			{{#each .}}	
+				<tr>
+					<td>{{uname}}({{uid}})</td>
+					<td>{{phone}}</td>
+					<td>{{address1}}{{address2}}</td>
+					<td>{{fmtpdate}}</td>
+				</tr>
+			{{/each}}
+		</table>
+</script>
+</body>
+<script>
+	getList();
+	function getList(){
+		$.ajax({
+			type:"get",
+			url:"/users",
+			dataType:"json",
+			success:function(data){
+				console.log(data);
+				const temp = Handlebars.compile($("#temp_list").html());
+				$("#div_list").html(temp(data))
+			}
+		})
+	}
+</script>
+</html>

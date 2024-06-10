@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+	<h1>사용자 정보</h1>
+	<div xmlns:th="http://www.thymeleaf.org">
+		<div>아이디: <span th:text="${user.uid}"></span></div>
+		<div>이름: <span th:text="${user.uname}"></span></div>
+		<div>전화: <span th:text="${user.phone}"></span></div>
+		<div>주소: <span th:text="${user.address1}" ></span> <span th:text="${user.address2}" ></span></div>
+		<div>가입일: <span th:text="${#dates.format(user.regDate, 'yyyy.MM.dd HH:mm:ss')}"></span></div>
+	</div>
+	
+	<button id="btn-update">수정</button>
+	<button id="btn-delete">삭제</button>
+	
+</body>
+<script>
+	const uid = "[[${user.uid}]]";
+	const date= "[[${user.regDate}]]";
+	console.log(date);
+	
+	$("#btn-update").on("click",function(){
+		location.href="/users/update/"+uid
+	});
+
+	$("#btn-delete").on("click",function(){
+		if(!confirm(uid+" 아이디를 삭제하시겠습니까?")) return;
+		$.ajax({
+			type:"post",
+			url:"/users/delete/"+uid,
+			success:function(){
+				alert("삭제완료");
+				location.href="/users/list";
+			}
+		})
+	})
+</script>
+</html>

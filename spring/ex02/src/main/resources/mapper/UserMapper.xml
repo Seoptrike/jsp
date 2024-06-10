@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+	<select id="list" resultType="hashmap">
+		select *, date_format(regdate,'%Y년-%m월-%d일') as fmtpdate from users order by fmtpdate desc, uname;
+	</select>
+	
+	<insert id="insert"> 
+		insert into users (uid,upass,uname)
+		values(#{uid}, #{upass}, #{uname})
+	</insert>
+</mapper>
